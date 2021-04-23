@@ -23,7 +23,6 @@ The MVP stage
 ##### View of menu:
 ![multiplication_mvp_menu](https://user-images.githubusercontent.com/32255911/115859031-fc3cc480-a472-11eb-9a45-3cbbd99e9043.png)
 
-
 ##### Architecture:
 
 ![multiplication_mvp](https://user-images.githubusercontent.com/32255911/115859095-0f4f9480-a473-11eb-98fe-93062c294797.png)
