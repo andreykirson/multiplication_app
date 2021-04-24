@@ -8,8 +8,9 @@ package microservices.book.multiplication.challenge;
  * multiplication
  */
 
-import microservices.book.multiplication.user.User;
+
 import lombok.*;
+import microservices.book.multiplication.user.User;
 
 @Getter
 @ToString
@@ -17,9 +18,12 @@ import lombok.*;
 @AllArgsConstructor
 public class ChallengeAttempt {
     private Long id;
-    private Long userId;
-    private int factorA;
-    private int factorB;
+    private User user;
+    // We decided to include factors
+// private final int factorA;
+// private final int factorB;
+// This is an alternative
+    private Challenge challenge;
     private int resultAttempt;
     private boolean correct;
 }
