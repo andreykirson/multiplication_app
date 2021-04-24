@@ -1,5 +1,8 @@
-package microservices.book.multiplication.challenge;
+package microservices.book.multiplication.service;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import microservices.book.multiplication.challenge.Challenge;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
@@ -26,7 +29,7 @@ public class ChallengeGeneratorServiceImpl implements ChallengeGeneratorService 
         return random.nextInt(MAXIMUM_FACTOR - MINIMUM_FACTOR) + MINIMUM_FACTOR;
     }
 
-    protected ChallengeGeneratorServiceImpl(final Random random) {
+    public ChallengeGeneratorServiceImpl(final Random random) {
         this.random = random;
     }
 

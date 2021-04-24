@@ -1,5 +1,7 @@
 package microservices.book.multiplication.challenge;
 
+import microservices.book.multiplication.controller.ChallengeAttemptController;
+import microservices.book.multiplication.service.ChallengeService;
 import microservices.book.multiplication.user.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -42,8 +44,8 @@ class ChallengeAttemptControllerTest {
         User user = new User(1L, "john");
         long attemptId = 5L;
         ChallengeAttemptDTO attemptDTO = new ChallengeAttemptDTO(50, 70, "john", 3500);
-        ChallengeAttempt expectedResponse = new ChallengeAttempt(attemptId, user.getId(),
-                50, 70, 3500, true);
+        ChallengeAttempt expectedResponse = new ChallengeAttempt(attemptId,
+                50, 70, 3500, true, user);
         given(challengeService
                 .verifyAttempt(eq(attemptDTO)))
                 .willReturn(expectedResponse);

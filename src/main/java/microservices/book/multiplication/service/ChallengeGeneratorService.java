@@ -1,4 +1,6 @@
-package microservices.book.multiplication.challenge;
+package microservices.book.multiplication.service;
+
+import microservices.book.multiplication.challenge.Challenge;
 
 /**
  * @author Andrey

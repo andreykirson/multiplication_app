@@ -12,18 +12,22 @@ package microservices.book.multiplication.challenge;
 import lombok.*;
 import microservices.book.multiplication.user.User;
 
+import javax.persistence.*;
+
 @Getter
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
 public class ChallengeAttempt {
+    @Id
+    @GeneratedValue
     private Long id;
-    private User user;
-    // We decided to include factors
-// private final int factorA;
-// private final int factorB;
-// This is an alternative
-    private Challenge challenge;
+    private int factorA;
+    private int factorB;
     private int resultAttempt;
     private boolean correct;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "USER_ID")
+    private User user;
 }
