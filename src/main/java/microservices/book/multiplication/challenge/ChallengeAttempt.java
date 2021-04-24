@@ -8,7 +8,6 @@ package microservices.book.multiplication.challenge;
  * multiplication
  */
 
-import microservices.book.multiplication.user.User;
 import lombok.*;
 
 @Getter
