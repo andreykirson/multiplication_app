@@ -9,20 +9,22 @@ This project represents the java web technology by Spring Boot.
 The MVP stage
 
 ##### Functionality:
-- In memory storage.
+- H2 memory storage.
 - Service generate random numbers.
 - User can check your mental estimation skill.
 
 ##### Used technologies:
 - Spring Boot for manipulating with request.
-- React for front-end.
+- React framework for front-end.
 - REST-full API.
 - Mockito for testing.
 
 
 ##### View of menu:
-![multiplication_mvp_menu](https://user-images.githubusercontent.com/32255911/115859031-fc3cc480-a472-11eb-9a45-3cbbd99e9043.png)
+![menu_data_layer](https://user-images.githubusercontent.com/32255911/115994893-41e8c100-a61c-11eb-9503-99c0c99a9039.png)
 
-##### Architecture:
+##### Architecture of layer:
+![architecture_data_layer](https://user-images.githubusercontent.com/32255911/115994989-b28fdd80-a61c-11eb-8900-10e3a3cca735.png)
 
-![multiplication_mvp](https://user-images.githubusercontent.com/32255911/115859095-0f4f9480-a473-11eb-98fe-93062c294797.png)
+##### Relation scheme:
+![relation_scheme](https://user-images.githubusercontent.com/32255911/115994980-ac99fc80-a61c-11eb-8af0-ae73263bc54e.png)
