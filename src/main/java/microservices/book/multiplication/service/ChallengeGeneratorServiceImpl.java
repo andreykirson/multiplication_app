@@ -38,5 +38,4 @@ public class ChallengeGeneratorServiceImpl implements ChallengeGeneratorService 
         return new Challenge(next(), next());
     }
 
-
 }

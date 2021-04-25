@@ -6,7 +6,9 @@ import microservices.book.multiplication.challenge.ChallengeAttempt;
 import microservices.book.multiplication.challenge.ChallengeAttemptDTO;
 import microservices.book.multiplication.dao.ChallengeAttemptRepository;
 import microservices.book.multiplication.dao.UserRepository;
+import microservices.book.multiplication.serviceclients.GamificationServiceClient;
 import microservices.book.multiplication.user.User;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.FetchType;
@@ -27,6 +29,7 @@ public class ChallengeServiceImpl implements ChallengeService {
 
     private final UserRepository userRepository;
     private final ChallengeAttemptRepository attemptRepository;
+    private final GamificationServiceClient gameClient;
 
     @Override
     public ChallengeAttempt verifyAttempt(ChallengeAttemptDTO attemptDTO) {
@@ -54,6 +57,10 @@ public class ChallengeServiceImpl implements ChallengeService {
 
         // Stores the attempt
         ChallengeAttempt storedAttempt = attemptRepository.save(checkedAttempt);
+        // Sends the attempt to gamification and prints the response
+        boolean status = gameClient.sendAttempt(storedAttempt);
+        log.info("Gamification service response: {}", status);
+
         return storedAttempt;
     }
 
