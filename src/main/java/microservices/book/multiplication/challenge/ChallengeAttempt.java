@@ -14,10 +14,12 @@ import microservices.book.multiplication.user.User;
 
 import javax.persistence.*;
 
+@Entity
 @Getter
 @ToString
 @EqualsAndHashCode
 @AllArgsConstructor
+@NoArgsConstructor
 public class ChallengeAttempt {
     @Id
     @GeneratedValue
@@ -30,4 +32,5 @@ public class ChallengeAttempt {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")
     private User user;
+
 }
