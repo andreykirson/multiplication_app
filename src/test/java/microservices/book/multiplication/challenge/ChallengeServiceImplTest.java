@@ -4,6 +4,7 @@ import microservices.book.multiplication.dao.ChallengeAttemptRepository;
 import microservices.book.multiplication.dao.UserRepository;
 import microservices.book.multiplication.service.ChallengeService;
 import microservices.book.multiplication.service.ChallengeServiceImpl;
+import microservices.book.multiplication.serviceclients.GamificationServiceClient;
 import microservices.book.multiplication.user.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,13 +34,16 @@ class ChallengeServiceImplTest {
     private UserRepository userRepository;
     @Mock
     private ChallengeAttemptRepository attemptRepository;
+    @Mock
+    private GamificationServiceClient gameClient;
 
 
     @BeforeEach
     public void setUp() {
         challengeService = new ChallengeServiceImpl(
                 userRepository,
-                attemptRepository
+                attemptRepository,
+                gameClient
         );
         given(attemptRepository.save(any()))
                 .will(returnsFirstArg());
@@ -50,7 +54,8 @@ class ChallengeServiceImplTest {
     public void checkCorrectAttemptTest() {
 
         // given
-        ChallengeAttemptDTO attemptDTO = new ChallengeAttemptDTO(50, 60, "john_doe", 3000);
+        ChallengeAttemptDTO attemptDTO = new ChallengeAttemptDTO(
+                50, 60, "john_doe", 3000);
         // when
         ChallengeAttempt resultAttempt = challengeService.verifyAttempt(attemptDTO);
         // then
