@@ -2,9 +2,9 @@ package microservices.book.multiplication.challenge;
 
 import microservices.book.multiplication.dao.ChallengeAttemptRepository;
 import microservices.book.multiplication.dao.UserRepository;
+import microservices.book.multiplication.service.ChallengeEventPub;
 import microservices.book.multiplication.service.ChallengeService;
 import microservices.book.multiplication.service.ChallengeServiceImpl;
-import microservices.book.multiplication.serviceclients.GamificationServiceClient;
 import microservices.book.multiplication.user.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +14,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import static org.assertj.core.api.BDDAssertions.then;
@@ -35,7 +34,7 @@ class ChallengeServiceImplTest {
     @Mock
     private ChallengeAttemptRepository attemptRepository;
     @Mock
-    private GamificationServiceClient gameClient;
+    private ChallengeEventPub eventPub;
 
 
     @BeforeEach
@@ -43,7 +42,7 @@ class ChallengeServiceImplTest {
         challengeService = new ChallengeServiceImpl(
                 userRepository,
                 attemptRepository,
-                gameClient
+                eventPub
         );
         given(attemptRepository.save(any()))
                 .will(returnsFirstArg());
